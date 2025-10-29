@@ -2,9 +2,9 @@
 
 namespace Backstage\Components;
 
+use Backstage\Components\Commands\ComponentsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Backstage\Components\Commands\ComponentsCommand;
 
 class ComponentsServiceProvider extends PackageServiceProvider
 {

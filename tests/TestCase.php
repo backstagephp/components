@@ -2,9 +2,9 @@
 
 namespace Backstage\Components\Tests;
 
+use Backstage\Components\ComponentsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Backstage\Components\ComponentsServiceProvider;
 
 class TestCase extends Orchestra
 {
