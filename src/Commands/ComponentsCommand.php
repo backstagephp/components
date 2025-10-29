@@ -6,14 +6,20 @@ use Illuminate\Console\Command;
 
 class ComponentsCommand extends Command
 {
-    public $signature = 'components:publish';
+    public $signature = 'backstage:component {component? : The component to use}';
 
-    public $description = 'Publish all components';
+    public $description = 'Publish a component';
 
     public function handle(): int
     {
-        $this->comment('All done');
+        $component = $this->argument('component');
 
-        return self::SUCCESS;
+        if (! $component) {
+            $component = $this->choice('Which component do you want to publish?', ['banner', 'breadcrumb', 'button', 'card', 'content', 'expander', 'footer', 'image', 'map', 'menu', 'open-graph-image', 'popup', 'slider']);
+        }
+
+        $this->info("Publishing component: {$component}");
+
+        return Command::SUCCESS;
     }
 }
