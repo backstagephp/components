@@ -1,0 +1,25 @@
+# To-Do List
+
+- [x] Config file
+- [x] Blade views (variants)
+- [x] Build assets
+- [x] Vite integration
+- [ ] Pest tests (PHP)
+- [ ] Jest tests (JavaScript)
+- [x] Add [permanent cache](https://github.com/vormkracht10/laravel-permanent-cache) explanation to README.md
+- [x] Add package structure and usage explanation to README.md
+- [x] Publish component files
+- [x] Make all output css and js filenames the same (eg. type-variant.css / type-variant.js)
+- [x] Require vendor package in Laravel apps tailwind config
+- [x] Publishing the components throws a Composer error when running `composer dump-autoload` in a Laravel app where the package is loaded
+- [x] Handle Vite build without assets
+- [ ] Make TailwindCSS watcher work with laravel-\*-component (now only works when resaving tailwind.config.js)
+- [ ] Automate all manual installation steps from README.md
+  - [ ] Auto-detect repository name
+  - [ ] Use `Laravel Package Skeleton > configure.php` or `Laravel Package Tools > hasInstallCommand`
+  - [ ] Use [Laravel Prompts](https://laravel.com/docs/11.x/prompts) as dev dependency
+- [x] Importing .css through .js builds both files when building component, but not when building from within project
+- [x] Component in component testen, require (eg. image) in project?
+- [x] Add ->hasConfigFile() to readme (config/<package-name>.php)
+- [ ] Publish resource files (js, css, images, ...)
+- [x] Add helper explanation to COMPONENT_DEVELOPMENT
