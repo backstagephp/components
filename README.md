@@ -18,13 +18,25 @@ Publishes a component
 php artisan backstage:component {component? : The component to use}
 ```
 
-## Add new component
+## Add new component from another repository
 
 ```bash
-git subtree add --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git main --squash
+git submodule add components/CounterComponent git@github.com:backstagephp/Counter-Component.git components/CounterComponent
+composer require backstage/CounterComponent
 ```
 
-Push the component to the repository.
+To update all submodules
 ```bash
-git subtree push --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git main
+git submodule update --recursive --remote
+git add .
+git commit -m "Update submodules"
+git push
+```
+
+To update a single submodule directly
+```bash
+cd components/Submodule
+git add .
+git commit -m "wip"
+git push
 ```
