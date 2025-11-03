@@ -3,6 +3,7 @@
 namespace Backstage\Components\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\ServiceProvider;
 
 class ComponentsCommand extends Command
 {
@@ -15,10 +16,21 @@ class ComponentsCommand extends Command
         $component = $this->argument('component');
 
         if (! $component) {
-            $component = $this->choice('Which component do you want to publish?', ['banner', 'breadcrumb', 'button', 'card', 'content', 'expander', 'footer', 'image', 'map', 'menu', 'open-graph-image', 'popup', 'slider']);
+
+            $publishableGroups = ServiceProvider::$publishGroups;
+            $keys = array_keys($publishableGroups);
+            foreach ($keys as $key) {
+                if (str_starts_with($key, 'backstage-components-')) {
+                    $components[] = str_replace('backstage-components-', '', $key);
+                }
+            }
+            $component = $this->choice('Which component do you want to publish?', $components);
         }
 
         $this->info("Publishing component: {$component}");
+        $this->call('vendor:publish', [
+            '--tag' => "backstage-components-{$component}",
+        ]);
 
         return Command::SUCCESS;
     }
