@@ -3,6 +3,9 @@
 namespace Backstage\Components;
 
 use Backstage\Components\Commands\ComponentsCommand;
+use Illuminate\Foundation\Events\VendorTagPublished;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,5 +23,21 @@ class ComponentsServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasCommand(ComponentsCommand::class);
+    }
+
+    public function boot(): void
+    {
+        parent::boot();
+
+        Event::listen(VendorTagPublished::class, function (VendorTagPublished $event) {
+            \dump('VendorTagPublished event fired', [
+                'tag' => $event->tag ?? null,
+                'paths' => $event->paths ?? [],
+            ]);
+            Log::debug('VendorTagPublished event fired', [
+                'tag' => $event->tag ?? null,
+                'paths' => $event->paths ?? [],
+            ]);
+        });
     }
 }
