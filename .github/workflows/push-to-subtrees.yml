@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'components/CounterComponent/**'
+      - 'components/**'
 
 jobs:
   push-subtree:

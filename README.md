@@ -37,3 +37,5 @@ git commit -m "Changed colors for heading"
 git push
 git subtree push --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git main
 ```
+
+You can also add the repository to the push-to-subtrees.yml Github action.
