@@ -4,6 +4,7 @@ namespace Backstage\Components;
 
 use Backstage\Components\Commands\ComponentsCommand;
 use Illuminate\Foundation\Events\VendorTagPublished;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Event;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -62,6 +63,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
                     }
                 }
             }
+            Artisan::call('view:clear');
         });
     }
 }

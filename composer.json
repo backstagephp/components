@@ -31,8 +31,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Backstage\\Components\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
