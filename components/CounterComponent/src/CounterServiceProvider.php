@@ -2,9 +2,9 @@
 
 namespace Backstage\Components\Counter;
 
-use Spatie\LaravelPackageTools\Package;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
+use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class CounterServiceProvider extends PackageServiceProvider
@@ -27,7 +27,7 @@ class CounterServiceProvider extends PackageServiceProvider
 
         View::addLocation($this->package->basePath('/../resources/'));
 
-        if (!class_exists(\App\View\Components\Counter::class)) {
+        if (! class_exists(\App\View\Components\Counter::class)) {
             Blade::component('counter', Components\Counter::class);
         }
     }
