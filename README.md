@@ -26,8 +26,7 @@ If you made a website component follow these steps.
 
 **Add a subtree for the component repository**
 ```bash
-components % git subtree add --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git mai
-n --squash
+git subtree add --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git main --squash
 ```
 
 After you made changes to the component push to both repositories:
