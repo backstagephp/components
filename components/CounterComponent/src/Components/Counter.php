@@ -2,8 +2,8 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\View\Component;
 
 class Counter extends Component
 {
@@ -13,7 +13,7 @@ class Counter extends Component
     {
         $this->count = Cache::get('counter', 0);
         $this->count++;
-        
+
         Cache::put('counter', $this->count);
     }
 
