@@ -37,7 +37,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
     {
         Event::listen(VendorTagPublished::class, function (VendorTagPublished $event) {
             foreach ($event->paths ?? [] as $path) {
-                if (!is_dir($path)) {
+                if (! is_dir($path)) {
                     continue;
                 }
 
@@ -46,7 +46,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
                 );
 
                 foreach ($iterator as $file) {
-                    if (!$file->isFile() || $file->getExtension() !== 'php') {
+                    if (! $file->isFile() || $file->getExtension() !== 'php') {
                         continue;
                     }
 
