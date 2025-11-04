@@ -1,0 +1,33 @@
+name: Push to Subtrees
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'components/CounterComponent/**'
+
+jobs:
+  push-subtree:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SUBTREE_SSH_KEY }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push CounterComponent subtree
+        run: |
+          git subtree push --prefix components/CounterComponent git@github.com:backstagephp/Counter-Component.git main
+

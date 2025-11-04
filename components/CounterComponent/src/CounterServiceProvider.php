@@ -1,6 +1,6 @@
 <?php
 
-namespace Backstage\Counter;
+namespace Backstage\Components\Counter;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

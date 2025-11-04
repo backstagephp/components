@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace Backstage\Components\Counter\Components;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
